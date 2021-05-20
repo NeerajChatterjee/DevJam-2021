@@ -169,6 +169,12 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
     <script>
             if(annyang){
+                window.addEventListener("keydown", checkKeyPress, false);
+                function checkKeyPress(key1) {
+                    if (key1.keyCode == "17") {
+                        record();
+                    }
+                }
                 function record(){
                     annyang.setLanguage('en-IN');
                     var commands = {
