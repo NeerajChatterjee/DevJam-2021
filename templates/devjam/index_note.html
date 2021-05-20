@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    <title>Search Engine</title>
+
+    <!-- H5T9W7-VA87UKVW6K -->
+
+    <style>
+        .container{
+            width: 90%;
+            margin: auto;
+            font-family: 'Lora', serif;
+        }
+        .title-note{
+            width: 60%;
+            margin: auto;
+        }
+        .page-heading{
+            text-align: center;
+            font-family: 'Nanum Myeongjo', serif;
+            font-size: 2.5rem;
+        }
+        .instructions{
+            background-color: rgb(255, 237, 221);
+            margin-top: 2em;
+            padding: 1em;
+            border: 1px solid grey;
+            transition: 0.5s;
+            border-radius: 0em 2em;
+        }
+        .instructions:hover,.instructions:active{
+            box-shadow: 0 0 1.5em 0px grey;
+        }
+        .instruct-list-item{
+            list-style: none;
+            font-size: 1.25rem;
+            padding: 0;
+        }
+        .instruct-list-item:before{
+            content: '✓';
+        }
+        .instruct-list-item{
+            line-height: 1.5em;
+            margin: 0;
+            padding: 0; 
+        }
+        form{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top: 10em;
+            padding: 1em;
+            background-color: rgb(255, 237, 221);
+            border-radius: 1em;
+        }
+        form input[type=text],form textarea{
+            box-sizing: border-box;
+            width: 100%;
+            padding: 1.125em 0.5em;
+            border: 0.5px solid grey;
+            border-radius: 1em;
+            font-size: 1.125rem;
+        }
+        form textarea{
+            resize: vertical;
+        }
+        form input[type=text]:hover,form textarea:hover,form input[type=text]:active,form textarea:active{
+            border:2px solid grey;
+            border-radius: 1em;
+        }
+        .image{
+            text-align: center;
+        }
+        .buttons{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        button{
+            padding: 0.5em;
+            width: 45%;
+            font-size: 1rem;
+        }
+        button:hover{
+            background-color: black;
+            color: white;
+        }
+
+        @media (max-width:750px){
+            .container{
+                width: 95%;
+            }
+            .page-heading{
+                font-size: 1.5rem;
+            }
+            .title-note{
+                width: 95%;
+            }
+            .instructions{
+                padding: 0.5em;
+            }
+            .instruct-list-item{
+                font-size: 1.125rem;
+            }
+            .instruct-list{
+                padding: 0;
+            }
+            form{
+                width: 90%;
+                margin-top: 5em;
+                margin-right: 0.5em;
+            }
+            form input[type=text],form textarea{
+                font-size: 1rem;
+            }
+            .buttons{
+                flex-direction: column;
+            }
+            button{
+                width: 100%;
+                margin-bottom: 0.2em;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-heading">NOTE MAKER</h1>
+        <div class="instructions">
+            <ul class="instruct-list">
+                <li class="instruct-list-item">Supports voice and text feature.</li>
+                <li class="instruct-list-item">Text input: Write the title and the notes.</li>
+                <li class="instruct-list-item">Voice input: Click on the mic logo and allow the microphone access. Please follow the commands mentioned below.
+                    <ul class="commands">
+                        <li>Start speaking with <strong>Write title </strong> and then speak the title.</li>
+                        <li>Start speaking with <strong>Add notes</strong> and then speak the notes.</li>
+                        <li>Speak <strong>Full stop</strong> for fullstop(.).</li>
+                        <li>Speak <strong>Command enter</strong> to go to a newline or line change.</li>
+                    </ul>
+                </li>
+                <li class="instruct-list-item">After completion of the notes, click on Save. To download the notes, click on Download. Don't download before saving a file.</li>
+            </ul>
+        </div>
+        <div class="title-note">
+            <form action="/note_maker/" method="GET">
+                <input type="text" name="title" id="title" placeholder="Title" required>
+                <textarea name="notes" id="notes" cols="30" rows="30" placeholder="Your notes...." required></textarea>
+                <div class="image">
+                    <img src="https://i.imgur.com/cHidSVu.gif"  alt="micimage" onclick="record()">
+                </div>
+                <div class="buttons">
+                    <button type="submit">Save</button>
+                    <button type="submit">Download</button>
+                </div>
+                {% if ans %}
+                    <h3 style="color: brown;margin-left: 5em;">{{ans}}</h3>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+    <script>
+            if(annyang){
+                function record(){
+                    annyang.setLanguage('en-IN');
+                    var commands = {
+                        'write title *tag': function (variable){
+                            let title = document.getElementById("title");
+                            title.value = variable;
+                        },
+                        'add notes *tag': function(variable){
+                            let notes = document.getElementById("notes");
+                            notes.value = notes.value + variable + " ";
+                        },
+                        'command enter': function(variable){
+                            let notes = document.getElementById("notes");
+                            variable = "\n";
+                            notes.value = notes.value + variable;
+                        },
+                        'fullstop':function(variable){
+                            let notes = document.getElementById("notes")
+                            variable = ".";
+                            notes.value = notes.value + variable;
+                        }
+                    }
+                    annyang.start();
+                    annyang.addCommands(commands);
+                }
+            }
+    </script>
+
+</body>
+</html>

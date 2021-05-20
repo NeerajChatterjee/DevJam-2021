@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    <title>Search Engine</title>
+
+    <!-- H5T9W7-VA87UKVW6K -->
+
+    <style>
+        .container{
+            max-width: 1380px;
+            margin: auto;
+            font-family: 'Lora', serif;
+        }
+
+        .instructions{
+            margin-top: 2em;
+            padding: 1em;
+            border: 1px solid grey;
+            transition: 0.5s;
+            background-color: rgb(255, 237, 221);
+
+        }
+        .instructions:hover,.instructions:active{
+            box-shadow: 0 0 1.5em 0px grey;
+        }
+        .instructions ul{
+            list-style: none;
+            font-size: 1.25rem;
+            padding: 0;
+        }
+        .instructions ul li:before{
+            content: '✓';
+        }
+        .instructions ul li{
+            line-height: 1.5em;
+            margin: 0;
+            padding: 0;
+            
+        }
+        .page-heading{
+            text-align: center;
+            font-family: 'Nanum Myeongjo', serif;
+            word-spacing: 0.3em;
+            font-size: 2.5rem;
+        }
+        form{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-top: 5em;
+            margin-bottom: 0.8em;
+        }
+        form input{
+            width: 33em;
+            max-width: 33em;
+            padding: 0.2em 1em;
+            border-radius: 2em;
+            font-size: 1.125rem;
+            border: 1px solid black;
+
+        }
+        form input:hover{
+            border: 3px solid black;
+        }
+        button{
+            padding: 0.8em;
+            width: 10em; 
+            max-width: 10em;
+            font-weight: 500;
+            font-size: 1.125rem;
+            /* background-color: ; */
+        }
+        button:hover,button:active{
+            background-color: black;
+            color: white;
+        }
+        h2{
+            color: grey;
+            margin:1em 10em;
+        }
+        p{
+            color: brown;
+            margin: auto;
+            max-width: 850px;
+            text-align: left;
+            font-size: 1.25rem;
+            line-height: 1.5em;
+            padding: 0.5em;
+            border: 1px solid grey;   
+        }
+        /* .form-ans{
+            border: 1px solid grey;
+        } */
+        @media (max-width: 750px){
+            .page-heading{
+                font-size: 1.5rem;
+            }
+            h2{
+                margin-left: 0;
+                margin-right: 0;
+            }
+            form{
+                flex-direction: column;
+                align-items: center;
+            }
+            form input{
+                width: 90%;
+            }
+            button{
+                padding: 0.2em;
+                width:70%;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-heading">SEARCH ENGINE</h1>
+        <div class="instructions">
+            <ul class="instruct-list">
+                <li class="instruct-list-item">
+                    Supports voice and text feature.
+                </li>
+                <li class="instruct-list-item">
+                    Text input: Write your Query and click on the Search button to get the desired result. 
+                </li>
+                <li class="instruct-list-item">
+                    Voice input: Click on the mic logo and allow the microphone access. Start speaking with <strong>Write query</strong> and then give the query. Click on the Search button to get the desired result. 
+                </li>
+                <li class="instruct-list-item">
+                    Search your Query and learn new things.
+                </li>
+            </ul>
+        </div>
+        <div class="form-ans">
+            <form action="/search_engine/" method="GET">
+                <input type="text" name="query" id="query" placeholder="Enter your Query">
+                <div class="image">
+                    <img src="https://i.imgur.com/cHidSVu.gif"  alt="micimage" onclick="record()">
+                </div>
+                <button type="submit">Search</button>
+            </form>
+
+            {% if ans %}
+                <div class="queryanswer">
+                    <h2>Answer to your query "{{query}}" :</h2>
+                    <p>{{ans}}</p>
+                </div>
+            {% endif %} 
+        </div>
+        <!-- <a href="{% url 'index_note' %}">Note Maker</a> -->
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+    <script>
+            if(annyang){
+                function record(){
+                    annyang.setLanguage('en-IN');
+                    var commands = {
+                        'write query *tag': function(variable){
+                            let query = document.getElementById("query");
+                            query.value = variable;
+                        }
+                    }
+                    annyang.start();
+                    annyang.addCommands(commands);
+                }
+            }
+    </script>
+
+</body>
+</html>
