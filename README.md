@@ -14,13 +14,13 @@
 
 Team Hypertext Assassins main moto is to provide a website where student can access multiple features in a single place.  
 
-The features we are implementing are: 
+### The features we are implementing are: 
 
-     ###Search Engine: It takes input as text and voice and uses Wikipedia and Wolfarm to give correct results. 
+     Search Engine: It takes input as text and voice and uses Wikipedia and Wolfarm to give correct results. 
 
-     ###Note maker: It converts the voice input to text and then stores the content into a file so that the student can access it in doc format. 
+     Note maker: It converts the voice input to text and then stores the content into a file so that the student can access it in doc format. 
 
-     ###File Extension converter: It converts the given image file(jpg/jprg/png) and doc/docx file to pdf format. 
+     File Extension converter: It converts the given image file(jpg/jprg/png) and doc/docx file to pdf format. 
 
 ## Technology Stack used: 
 
