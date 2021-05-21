@@ -16,25 +16,16 @@ Team Hypertext Assassins main moto is to provide a website where student can acc
 
 ### The features we are implementing are: 
 
- #### Search Engine: It takes input as text and voice and uses Wikipedia and Wolfarm to give correct results. 
+> _**Search Engine**_: It takes input as text and voice and uses Wikipedia and Wolfarm to give correct results. 
 
- #### Note maker: It converts the voice input to text and then stores the content into a file so that the student can access it in doc format. 
+> _**Note maker**_: It converts the voice input to text and then stores the content into a file so that the student can access it in doc format. 
 
- #### File Extension converter: It converts the given image file(jpg/jprg/png) and doc/docx file to pdf format. 
+> _**File Extension converter**_: It converts the given image file(jpg/jprg/png) and doc/docx file to pdf format. 
 
 ## Technology Stack used: 
 
-### HTML 
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/> <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E"/> <img src="https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white"/> <img src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white"/>
 
-### CSS 
-
-### JavaScript 
-
-### Python 
-
-### Django 
-
- 
 
 ## Contributors: 
 
