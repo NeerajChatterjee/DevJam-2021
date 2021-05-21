@@ -83,6 +83,14 @@
             flex-direction: row;
             justify-content: space-around;
         }
+        .buttons button a{
+            text-decoration: none;
+            color: black;
+            padding: 0.5em 8em;
+        }
+        .buttons button a:hover{
+            color: white;
+        }
         button{
             padding: 0.5em;
             width: 45%;
@@ -158,7 +166,7 @@
                 </div>
                 <div class="buttons">
                     <button type="submit">Save</button>
-                    <button type="submit">Download</button>
+                    <button><a href="{{download_file}}" download>DOWNLOAD</a></button>
                 </div>
                 {% if ans %}
                     <h3 style="color: brown;margin-left: 5em;">{{ans}}</h3>

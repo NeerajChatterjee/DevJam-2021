@@ -17,8 +17,8 @@ from django.contrib import admin
 from django.urls import path,include
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from . import views
-# from django.conf import settings
-# from django.conf.urls.static import static
+from django.conf import settings
+from django.conf.urls.static import static
 # from converter import views
 
 urlpatterns = [
@@ -28,10 +28,9 @@ urlpatterns = [
     path('search_engine/',views.search_engine, name="search_engine"),
     path('index_note/',views.index_note, name='index_note'),
     path('note_maker/', views.note_maker, name='note_maker'),
-    # path('', include('converter.urls')),
-    # path('index_convert/', views.index_convert, name='index_convert'),
-    # path('imgtopdf/', views.imgtopdf),
-    # path('doctopdf/', views.doctopdf),
-]#+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('converter/', views.index_convert, name='converter'),
+    path('imgtopdf/', views.imgtopdf),
+    path('doctopdf/', views.doctopdf),
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()
