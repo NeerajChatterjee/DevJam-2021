@@ -20,7 +20,12 @@ Team Hypertext Assassins main moto is to provide a website where student can acc
 
 > _**Note maker**_: It converts the voice input to text and then stores the content into a file so that the student can access it in doc format. 
 
-> _**File Extension converter**_: It converts the given image file(jpg/jprg/png) and doc/docx file to pdf format. 
+> _**File Extension converter**_: It converts the given image file(jpg/jpeg/png) and doc/docx file to pdf format. 
+
+### Chrome Extension:
+
+> _**MNNIT Connect**_: It has a timer that shut down the tabs automatically. Clients can enter the time and the tabs that they want to close after a certain period. The extension helps students from long time distractions like YouTube, Social media etc.
+
 
 ## Technology Stack used: 
 
