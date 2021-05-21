@@ -47,12 +47,12 @@ def note_maker(request):
     notes = request.GET.get('notes')
 
     try:
-        with open("1.txt", 'w') as f:
-            f.write(title)
+        with open("media/notes.txt", 'w') as f:
+            f.write('Title - '+ title)
             f.write('\n')
-            f.write(notes)
+            f.write("Notes -\n"+ notes)
             ans = "File saved successfully! Click on DOWNLOAD."
-            filename = '1.txt'
+            filename = 'notes.txt'
             fs = FileSystemStorage()
             templateurl = fs.url(filename)
             # finalname = templateurl.replace(filename, "notes.txt")
@@ -97,3 +97,6 @@ def doctopdf(request):
     # finalname = templateurl.replace(filename, "converted.pdf")
     # print(templateurl)
     return render(request, 'devjam/index_converter.html', {'done1': " Conversion successful, Click DOWNLOAD "})
+
+# def connect_ext(request):
+#     return render(request,'../../')
