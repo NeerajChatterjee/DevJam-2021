@@ -2,21 +2,26 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
+
     <link rel="stylesheet" href="{% static '/css/style.css' %}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;1,500;1,600&display=swap" rel="stylesheet"> 
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;1,500;1,600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Education</title>
 </head>
+
 <body>
+    {% csrf_token  %}
     <section class="header">
-        
+
         <nav>
             <a href="{% url 'index' %}">
                 {% load static %}
@@ -30,23 +35,30 @@
                     <li><a href="#">COURSE</a></li>
                     <li><a href="#">BLOG</a></li>
                     <li><a href="#">CONTACT</a></li>
+                    {% if user.is_authenticated %}
+                        <li > Hi,{{user.username}}</li>
+                        <a href="/logout" id="logout_option" style="text-decoration:none; color: black; font-size: 0.9em;">LOGOUT</a>
+                    {% else %}
+                        <li><a href="/login">LOGIN</a></li>
+                    {% endif %}
                 </ul>
             </div>
-        <i class="fa fa-bars" onclick="showMenu()"></i>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
         </nav>
         <div class="text-box">
             <h1>MOTILAL NEHRU NATIONAL INSTITUTE OF TECHNOLOGY</h1>
             <a href="" class="hero-btn">Visit us to know more</a>
         </div>
         <div class="video-container" id="myVideo">
-        <video autoplay loop muted>
-            <source src="{% static '/images/college.mp4' %}" type="video/mp4">
-        </video>
-    </div>
+            <video autoplay loop muted>
+                <source src="{% static '/images/college.mp4' %}" type="video/mp4">
+            </video>
+        </div>
     </section>
     <section class="course">
         <h1>Features We Offer</h1>
-        <p>We built a college website where student can access multiple features in a single place. This website supports speech recognition, which saves time and helps every student.</p>
+        <p>We built a college website where student can access multiple features in a single place. This website
+            supports speech recognition, which saves time and helps every student.</p>
     </section>
     <div class="row">
         <div class="course-col">
@@ -58,7 +70,8 @@
         <div class="course-col">
             <a href="{% url 'note_maker' %}" class="weblink" target="_blank">
                 <h3>Note Maker</h3>
-                <p>It converts the voice input to text and then stores the content into a file so that the student in a doc format can access it.</p>
+                <p>It converts the voice input to text and then stores the content into a file so that the student in a
+                    doc format can access it.</p>
             </a>
         </div>
         <div class="course-col">
@@ -89,21 +102,23 @@
 
     <footer>
         <div class="container">
-             <div class="sec aboutus">
-                 <h2>
-                     About Us
-                 </h2>
-                 <p>This website is designed by Neeraj Chattejee , Shivanand , Silkie Agarwal and Kartikey Gupta. In which we provide a college website where student can access multiple features in a single place. This website supports speech recognition, which saves time and helps every student.</p>
-                    <ul class="sci">
-                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>                   
-                    </ul>
-             </div>
-          
-             <div class="sec quickLinks">
-                 <h2>
+            <div class="sec aboutus">
+                <h2>
+                    About Us
+                </h2>
+                <p>This website is designed by Neeraj Chattejee , Shivanand , Silkie Agarwal and Kartikey Gupta. In
+                    which we provide a college website where student can access multiple features in a single place.
+                    This website supports speech recognition, which saves time and helps every student.</p>
+                <ul class="sci">
+                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="sec quickLinks">
+                <h2>
                     Quick Links </h2>
                 <ul>
                     <li><a href="#">About</a>"</li>
@@ -113,25 +128,26 @@
                     <li><a href="#">Terms & Conditions</a>"</li>
                     <li><a href="#">Contact</a>"</li>
                 </ul>
-             </div>
-             <div class="sec contact">
-                 <h2>Contact Info</h2>
-                 <ul class="info">
+            </div>
+            <div class="sec contact">
+                <h2>Contact Info</h2>
+                <ul class="info">
                     <li>
-                        <span><i class="fa fa-map-marker" aria-hidden="true" style="font-size: 17px;line-height: 0.3cm;"></i>
-                        <span>MNNIT ALLAHABAD</span></span>
+                        <span><i class="fa fa-map-marker" aria-hidden="true"
+                                style="font-size: 17px;line-height: 0.3cm;"></i>
+                            <span>MNNIT ALLAHABAD</span></span>
                     </li>
                     <li>
                         <span><i class="fa fa-phone" aria-hidden="true" style="font-size: 17px;line-height: 0cm;"></i>
-                        <a href="tel:123456789">+1 234 567 89</a></span>
+                            <a href="tel:123456789">+1 234 567 89</a></span>
                     </li>
                     <li>
-                        <span><i class="fa fa-envelope" aria-hidden="true" style="font-size: 17px;"></i>                        
-                        <a href="mail">mail@mail.com</a>
-                      </span>
+                        <span><i class="fa fa-envelope" aria-hidden="true" style="font-size: 17px;"></i>
+                            <a href="mail">mail@mail.com</a>
+                        </span>
                     </li>
-                 </ul>
-             </div>
+                </ul>
+            </div>
         </div>
     </footer>
     <div class="copyrightText">
@@ -143,16 +159,21 @@
 
 
 
-<!-- Javascript for toggle menu -->
+    <!-- Javascript for toggle menu -->
     <script>
         var navLinks = document.getElementById("navLinks");
 
-        function showMenu(){
+        function showMenu() {
             navLinks.style.right = "0"
         }
-        function hideMenu(){
+        function hideMenu() {
             navLinks.style.right = "-200px"
         }
+
+        // function logout_option(){
+        //     document.getElementById('logout_option').style.display='block';
+        // }
     </script>
 </body>
+
 </html>
