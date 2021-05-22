@@ -1,17 +1,14 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render
 import sys
 import wolframalpha
 import wikipedia
 import webbrowser
 import speech_recognition as sr
-# import pyaudio
+import pyaudio
 import pyttsx3
 # import requests
-from subprocess import run, PIPE 
-from django.core.files.storage import FileSystemStorage       
-from django.contrib.auth.forms import UserCreationForm       
-from django.contrib import messages                        
-from django.http import HttpResponse
+from subprocess import run, PIPE
+from django.core.files.storage import FileSystemStorage
 
 listener = sr.Recognizer()
 
@@ -32,7 +29,7 @@ def search_engine(request):
         ans = next(res.results).text
         return render(request, 'devjam/index_search.html', {'ans': ans, 'query': query})
 
-    except Exception: 
+    except Exception:
         try:
             ans = wikipedia.summary(query,sentences=20)
             return render(request, 'devjam/index_search.html', {'ans': ans, 'query': query})
@@ -101,18 +98,5 @@ def doctopdf(request):
     # print(templateurl)
     return render(request, 'devjam/index_converter.html', {'done1': " Conversion successful, Click DOWNLOAD "})
 
-
-''' For new user Registration '''
-
-def register(request):
-    if request.method=='POST':
-        form=UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username=form.cleaned_data.get('username')
-            messages.success(request,f'Account successfully created for {username}!')
-            return redirect('login')
-    else:
-        form=UserCreationForm() 
-    return render(request, 'devjam/register.html',{'form':form})
-
+# def connect_ext(request):
+#     return render(request,'../../')
