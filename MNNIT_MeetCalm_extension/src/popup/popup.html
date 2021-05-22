@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./popup.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="header">
+        <h2>MeetCalm</h2><h6 id="version"></h6>
+    </div>
+    <p class="main_toggle">
+        Hide me <input type="checkbox" id="mainButton"><label class="l2" for="mainButton" title="Toggles service on/off"> Turn on the extension</label>
+    </p>      
+    <div class="warpper">
+        <input class="radio" id="one" name="group" type="radio" checked>
+        <div class="tabs">
+            <label class="tab" id="one-tab" for="one">G-Meet</label>
+        </div>
+        <div class="panels">
+            <div class="panel" id="one-panel">
+                <div class="panel-title">G-Meet Settings </div>
+                <p>Chat Messages<input type="checkbox" id="gmeet_messages"><label class="l2" for="gmeet_messages" title="Blurs all messages in the chat."> All messages in chat</label></p>
+                <p>Participants<input type="checkbox" id="gmeet_participants"><label class="l2" for="gmeet_participants" title="Blurs all participant related data"> Participants</label></p>
+                <p>Video<input type="checkbox" id="gmeet_video"><label class="l2" for="gmeet_video" title="Blurs all videos in the call"> Videos</label></p>
+                <p>User Entry/Exit<input type="checkbox" id="gmeet_entry"><label class="l2" for="gmeet_entry" title="Blurs entry data for new folks"> Entry</label></p>
+                <p>User Badge<input type="checkbox" id="gmeet_badge"><label class="l2" for="gmeet_badge" title="Blurs your badge"> User Badge </label></p>
+            <div class="panel" id="four-panel">
+                <div class="panel-title">General Settings</div>
+                <p>Chat Messages<input class="checks" type="checkbox" id="general_messages"><label class="l2" for="general_messages" title="Blurs all messages in the chat."> All messages in chat</label></p>
+            </div>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+
+</html>

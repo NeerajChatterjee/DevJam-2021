@@ -1,0 +1,40 @@
+{
+    "name": "Hypertext Assassins MeetCalm",
+    "version": "0.1.1",
+    "description": "Blurs your video calls and messages in public.",
+    "permissions": ["storage", "<all_urls>", "https://*/"],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "web_accessible_resources": [
+      "images/statusOn.png",
+      "images/statusOff.png",
+      "popup/popup.css",
+      "css/gmeet_messages.css",
+      "css/gmeet_badge.css",
+      "css/gmeet_participants.css",
+      "css/gmeet_entry.css",
+      "css/gmeet_video.css"
+    ],
+    "content_scripts": [
+     {
+       "matches": ["https://meet.google.com/*"],
+       "js": ["loadMeet.js"]
+     }
+    ],
+    "browser_action": {
+     "default_title": "Anti Snooping extension for your video calls",
+     "default_popup": "popup/popup.html"
+    },
+    "commands": {
+      "toggle": {
+        "suggested_key": {
+          "default": "Alt+X"
+        },
+        "description": "Toggle On/Off"
+      }
+    },
+    "manifest_version": 2
+  }
+  
