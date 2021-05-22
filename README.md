@@ -25,6 +25,7 @@ Team Hypertext Assassins main moto is to provide a website where student can acc
 ### Chrome Extension:
 
 > _**MNNIT Connect**_: It has a timer that shut down the tabs automatically. Clients can enter the time and the tabs that they want to close after a certain period. The extension helps students from long time distractions like YouTube, Social media etc.
+> _**MNNIT MeetCalm**_: It hides the sensitive data by making a specific part blur. Students/Faculties can select the areas to blur and use them while doing screen sharing.
 
 
 ## Technology Stack used: 
