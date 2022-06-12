@@ -1,7 +1,7 @@
 # Hypertext-Assassins-DevJam-2021
 
   
-<h1 align="center">EDUCATION</h1> 
+<h1 align="center">HyperTextEdu</h1> 
 
 <p align="center"> 
 
